@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:33:54 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/21 12:13:18 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:16:33 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <limits.h>
 # include <stdbool.h>
-# include "../extras/libft/libft.h"
+//# include "../extras/libft/libft.h"
 # include "../extras/ft_printf/ft_printf.h"
 
 

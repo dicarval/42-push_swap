@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 10:52:19 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/24 12:08:18 by dicarval         ###   ########.fr       */
+/*   Created: 2024/04/25 12:27:59 by dicarval          #+#    #+#             */
+/*   Updated: 2024/05/01 14:32:16 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	ft_print_str(char *str)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	len;
 
-	a = NULL;
-	b = NULL;
-	if (argc <= 2)
-		return (0);
-	stack_creation(&a, argv);
-
+	len = 0;
+	if (str == NULL)
+		return (ft_print_str("(null)"));
+	while (*str != '\0')
+	{
+		len += ft_print_char((int)*str);
+		str++;
+	}
+	return (len);
 }

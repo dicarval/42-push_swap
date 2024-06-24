@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_input.c                                    :+:      :+:    :+:   */
+/*   ft_print_adr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 14:29:10 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/19 16:51:11 by dicarval         ###   ########.fr       */
+/*   Created: 2024/04/29 15:14:16 by dicarval          #+#    #+#             */
+/*   Updated: 2024/05/03 13:52:37 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-t_stack	process_input(int argc, char **argv)
+int	ft_print_adr(void *ptr)
 {
-	t_stack	*a;
-	int		i;
-	int		nbr;
+	int	len;
+
+	len = 0;
+	if (ptr == 0)
+		return (ft_print_str("(nil)"));
+	else
+	{
+		len += ft_print_str("0x");
+		len += ft_print_hexa(((unsigned long int) ptr), 'x');
+	}
+	return (len);
 }

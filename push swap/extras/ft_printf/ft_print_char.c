@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/21 13:08:56 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/21 14:25:06 by dicarval         ###   ########.fr       */
+/*   Created: 2024/04/24 17:00:15 by dicarval          #+#    #+#             */
+/*   Updated: 2024/05/06 14:18:27 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	*stack_creation(t_stack **a, char **argv)
+int	ft_print_char(int c)
 {
-	long	n;
-	int		i;
-
-	i = 1;
-	while (argv[i])
-	{
-		if (error_syntax(argv[i]))
-			error_protocol(a);
-
-	}
-
+	return (write(1, &c, 1));
 }
