@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:52:19 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/24 12:08:18 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:04:36 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,12 @@ int	main(int argc, char **argv)
 	if (argc <= 2)
 		return (0);
 	stack_creation(&a, argv);
+	if (!stack_sorted(a))
+	{
+		if (stack_len(a) == 2)
+			sa(&a, false);
+
+	}
+
 
 }
