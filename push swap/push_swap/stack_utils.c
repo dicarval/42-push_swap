@@ -6,11 +6,24 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:27:47 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/26 12:03:21 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/06/27 11:09:01 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	stack_len(t_stack *stack)
+{
+	int	len;
+
+	len = 0;
+	while (stack != NULL)
+	{
+		len++;
+		stack = stack->next;
+	}
+	return (len);
+}
 
 bool	stack_sorted(t_stack *stack)
 {

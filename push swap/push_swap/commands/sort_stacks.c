@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 10:52:19 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/27 12:02:09 by dicarval         ###   ########.fr       */
+/*   Created: 2024/06/27 16:43:23 by dicarval          #+#    #+#             */
+/*   Updated: 2024/06/27 17:44:41 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	sort_stacks(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	len_a;
 
-	a = NULL;
-	b = NULL;
-	if (argc <= 2)
-		return (0);
-	stack_creation(&a, argv);
-	if (!stack_sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			sort_stack(&a, &b);
-	}
-	free_stack(&a);
-	return (0);
+	len_a = stack_len(*a);
+	if (len_a-- > 3 && !stack_sorted(*a))
+
 }

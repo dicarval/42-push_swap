@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 10:52:19 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/27 12:02:09 by dicarval         ###   ########.fr       */
+/*   Created: 2024/06/27 13:02:22 by dicarval          #+#    #+#             */
+/*   Updated: 2024/06/27 14:26:38 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	sort_three(t_stack **a)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack *biggest;
 
-	a = NULL;
-	b = NULL;
-	if (argc <= 2)
-		return (0);
-	stack_creation(&a, argv);
-	if (!stack_sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			sort_stack(&a, &b);
-	}
-	free_stack(&a);
-	return (0);
+	biggest = find_max(*a);
+	if (biggest->nbr == (*a)->nbr)
+		ra(a, false);
+	else if ((*a)->next == biggest)
+		rra(a, false);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a, false);
 }
