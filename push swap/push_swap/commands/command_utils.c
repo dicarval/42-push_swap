@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*   command_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 16:43:23 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/28 16:30:11 by dicarval         ###   ########.fr       */
+/*   Created: 2024/06/28 16:29:26 by dicarval          #+#    #+#             */
+/*   Updated: 2024/06/28 16:32:25 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_stacks(t_stack **a, t_stack **b)
+void	upd_index(t_stack *stack)
 {
-	int	len_a;
 
-	len_a = stack_len(*a);
-	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
-	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
-	while (len_a-- > 3 && !stack_sorted(*a))
-	{
-		upd_nodes_a_to_b(*a, *b);
-		move_a_to_b(a, b);
-	}
-	sort_three(a);
-	while (*b)
-	{
-		upd_nodes_b_to_a(*b, *a);
-		move_b_to_a(b, a);
-	}
-	upd_index (*a);
-	min_on_top(a);
+}
+
+void	min_on_top(t_stack **a)
+{
 
 }
