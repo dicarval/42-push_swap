@@ -6,11 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:08:56 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/26 11:26:42 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:41:27 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	append_node(t_stack **a, int n)
 {

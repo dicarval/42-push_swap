@@ -6,11 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:41:12 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/24 13:16:22 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/02 10:32:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_stack(t_stack **a)
 {
