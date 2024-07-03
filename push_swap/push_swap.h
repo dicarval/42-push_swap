@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:33:54 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/01 15:39:03 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:42:56 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 {
 	long			nbr;
 	long			index;
-	int				push_cost;
+	long			push_cost;
 	bool			above_median;
 	bool			cheapest;
 	struct s_stack	*target_node;
@@ -31,6 +31,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-t_stack	*find_min(t_stack *a)
+t_stack	*find_min(t_stack *a);
 
 #endif

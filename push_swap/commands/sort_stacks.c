@@ -6,11 +6,16 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:43:23 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/01 17:35:34 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/03 17:38:51 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static void	move_a_to_b(t_stack **a, t_stack **b)
+{
+
+}
 
 void	sort_stacks(t_stack **a, t_stack **b)
 {
