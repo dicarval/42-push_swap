@@ -6,14 +6,39 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:43:23 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/03 17:38:51 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/04 22:27:14 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+{
+	while (!(*a == cheapest_node) && !(*b == cheapest_node->target_node))
+		rr(a, b, false);
+	updt_index(*a);
+	updt_index(*b);
+}
+
+static void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+{
+	while (!(*a == cheapest_node) && !(*b == cheapest_node->target_node))
+		rrr(a, b, false);
+	updt_index(*a);
+	updt_index(*b);
+}
+
 static void	move_a_to_b(t_stack **a, t_stack **b)
 {
+	t_stack *cheapest_node;
+
+	cheapest_node = find_cheapest(*a);
+	if (cheapest_node->above_median
+		&& cheapest_node->target_node->above_median)
+		rev_rotate_both(a, b, cheapest_node);
+	if (!(cheapest_node->above_median)
+		&& !(cheapest_node->target_node->above_median))
+		rotate_both(a, b, cheapest_node);
 
 }
 
