@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:29:26 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/09 13:34:29 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:24:22 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	prep_for_push(t_stack **stack, t_stack *move_to_top, char stack_name)
 				rb(stack, false);
 		}
 	}
-
 }
 
 void	updt_index(t_stack *stack)
