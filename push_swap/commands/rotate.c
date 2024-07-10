@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:49:31 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/09 16:19:11 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:42:14 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotate(t_stack **stack)
+static void	rotate(t_stack **stack)
 {
 	t_stack	*rotated;
 	t_stack	*last;
