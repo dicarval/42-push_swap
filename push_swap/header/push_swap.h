@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:33:54 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 14:58:15 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:35:46 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <limits.h>
 # include <stdbool.h>
-# include "../../ft_printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -36,7 +36,7 @@ void	error_protocol(t_stack **a);
 void	free_stack(t_stack **a);
 
 //***Stack initialization
-void	*stack_creation(t_stack **a, char **argv);
+void	stack_creation(t_stack **a, char **argv);
 
 //***Stack utils
 t_stack	*find_last(t_stack *a);

@@ -6,7 +6,7 @@
 #    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 17:26:39 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/11 17:08:20 by dicarval         ###   ########.fr        #
+#    Updated: 2024/07/11 17:22:03 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME			= push_swap
 
 #Directories
 PRINTF			= ./ft_printf/libftprintf.a
-HEADER			= ./push_swap/header
-SRCDIR			= ./push_swap/srcs
-OBJDIR			= ./push_swap/obj
+HEADER			= header/
+SRC_DIR			= srcs/
+OBJ_DIR			= obj/
 
 # Compiler and CFlags
 CC				= cc

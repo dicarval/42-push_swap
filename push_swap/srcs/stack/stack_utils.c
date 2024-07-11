@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:27:47 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 16:04:55 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:48:38 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 t_stack	*find_max(t_stack *stack)
 {
 	t_stack	*temp;
+	long	max;
 
-	temp->nbr = LONG_MIN;
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
 	while (stack)
 	{
-		if (stack->nbr > temp->nbr)
+		if (stack->nbr > max)
+		{
+			max = stack->nbr;
 			temp = stack;
+		}
 		stack = stack->next;
 	}
 	return (temp);
@@ -29,14 +35,18 @@ t_stack	*find_max(t_stack *stack)
 t_stack	*find_min(t_stack *stack)
 {
 	t_stack	*temp;
+	long	min;
 
 	if (!stack)
 		return (NULL);
-	temp->nbr = LONG_MAX;
+	min = LONG_MAX;
 	while (stack)
 	{
-		if (stack->nbr < temp->nbr)
+		if (stack->nbr < min)
+		{
+			min = stack->nbr;
 			temp = stack;
+		}
 		stack = stack->next;
 	}
 	return (temp);

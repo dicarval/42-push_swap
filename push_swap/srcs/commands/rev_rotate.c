@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:30:09 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 16:04:17 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:25:56 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	rev_rotate(t_stack **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	rotated = find_last(stack);
+	rotated = find_last(*stack);
 	temp = *stack;
 	rotated->prev->next = NULL;
 	rotated->next = temp;
