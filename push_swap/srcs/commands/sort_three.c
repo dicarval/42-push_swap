@@ -6,15 +6,15 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 13:02:22 by dicarval          #+#    #+#             */
-/*   Updated: 2024/06/27 14:26:38 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:19 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 void	sort_three(t_stack **a)
 {
-	t_stack *biggest;
+	t_stack	*biggest;
 
 	biggest = find_max(*a);
 	if (biggest->nbr == (*a)->nbr)

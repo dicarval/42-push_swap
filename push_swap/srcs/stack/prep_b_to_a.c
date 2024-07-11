@@ -6,11 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:19:02 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/09 11:46:55 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:54 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 static void	set_target_node_b(t_stack *b, t_stack *a)
 {
@@ -39,7 +39,8 @@ static void	set_target_node_b(t_stack *b, t_stack *a)
 		b = b->next;
 	}
 }
-void prep_nodes_b_to_a(t_stack **b, t_stack **a)
+
+void	prep_nodes_b_to_a(t_stack **b, t_stack **a)
 {
 	updt_index(*b);
 	updt_index(*a);

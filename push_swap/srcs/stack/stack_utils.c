@@ -6,15 +6,15 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:27:47 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/02 17:11:00 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:55 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
-t_stack *find_max(t_stack *stack)
+t_stack	*find_max(t_stack *stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp->nbr = LONG_MIN;
 	while (stack)
@@ -28,10 +28,10 @@ t_stack *find_max(t_stack *stack)
 
 t_stack	*find_min(t_stack *stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!stack)
-	return (NULL);
+		return (NULL);
 	temp->nbr = LONG_MAX;
 	while (stack)
 	{

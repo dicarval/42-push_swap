@@ -6,11 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:49:31 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/10 14:42:14 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:16 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 static void	rotate(t_stack **stack)
 {

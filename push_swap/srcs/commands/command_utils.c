@@ -6,24 +6,24 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:29:26 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/10 17:24:22 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:17 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 void	prep_for_push(t_stack **stack, t_stack *move_to_top, char stack_name)
 {
 	while (*stack != move_to_top)
 	{
-		if (stack_name = 'a')
+		if (stack_name == 'a')
 		{
 			if (move_to_top->above_median)
 				rra(stack, false);
 			else
 				ra(stack, false);
 		}
-		if (stack_name = 'b')
+		if (stack_name == 'b')
 		{
 			if (move_to_top->above_median)
 				rrb(stack, false);
@@ -41,7 +41,7 @@ void	updt_index(t_stack *stack)
 	if (!stack)
 		return ;
 	i = 0;
-	median = stack_len(stack)/2;
+	median = stack_len(stack) / 2;
 	while (stack)
 	{
 		stack->index = i;
@@ -52,7 +52,6 @@ void	updt_index(t_stack *stack)
 		stack = stack->next;
 		i++;
 	}
-
 }
 
 void	min_on_top(t_stack **a)

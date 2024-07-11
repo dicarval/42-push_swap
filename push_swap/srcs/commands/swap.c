@@ -6,11 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 16:19:28 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/10 17:15:58 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 static void	swap(t_stack **stack)
 {
@@ -44,7 +44,7 @@ void	sb(t_stack **b, bool print)
 		printf("sb\n");
 }
 
-void	ss(t_stack **a ,t_stack **b, bool print)
+void	ss(t_stack **a, t_stack **b, bool print)
 {
 	swap(a);
 	swap(b);

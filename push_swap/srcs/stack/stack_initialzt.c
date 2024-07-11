@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:08:56 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/02 16:41:27 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:54 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
-void	append_node(t_stack **a, int n)
+static void	append_node(t_stack **a, int n)
 {
 	t_stack	*new_node;
 	t_stack	*last_node;
@@ -36,13 +36,14 @@ void	append_node(t_stack **a, int n)
 		new_node->prev = last_node;
 	}
 }
-long	atol(const char *argv)
-{
-	long result;
-	int sign;
 
-	while (*argv == ' ' || *argv == '\t' || *argv == '\n' ||
-			*argv == '\r' || *argv == '\f' || *argv == '\v')
+static long	atol(const char *argv)
+{
+	long	result;
+	int		sign;
+
+	while (*argv == ' ' || *argv == '\t' || *argv == '\n'
+		|| *argv == '\r' || *argv == '\f' || *argv == '\v')
 		*argv++;
 	sign = 1;
 	if (*argv == '-' || *argv == '+')
@@ -59,6 +60,7 @@ long	atol(const char *argv)
 	}
 	return (result * sign);
 }
+
 void	*stack_creation(t_stack **a, char **argv)
 {
 	long	n;

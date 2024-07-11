@@ -6,11 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:41:12 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/03 14:27:07 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:51 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 void	free_stack(t_stack **a)
 {
@@ -40,7 +40,7 @@ void	error_protocol(t_stack **a)
 
 int	error_duplicate(t_stack *a, int n)
 {
-	if(!a)
+	if (!a)
 		return (0);
 	while (a != NULL)
 	{
@@ -54,13 +54,14 @@ int	error_duplicate(t_stack *a, int n)
 int	error_syntax(char *argv)
 {
 	if (!(*argv == '+' || *argv == '-' || (*argv >= '0' && *argv <= '9')))
-		return(1);
-	if ((argv[0] == '+' || argv[0] == '-') && !(argv[1] >= '0' && argv[1] <= '9'))
-		return(1);
+		return (1);
+	if ((argv[0] == '+' || argv[0] == '-')
+		&& !(argv[1] >= '0' && argv[1] <= '9'))
+		return (1);
 	while (++*argv)
 	{
 		if (!(*argv >= '0' && *argv <= '9'))
-			return(1);
+			return (1);
 	}
 	return (0);
 }

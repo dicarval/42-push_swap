@@ -6,11 +6,11 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:43:23 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/09 16:19:11 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:19 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
@@ -30,7 +30,7 @@ static void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 
 static void	move_a_to_b(t_stack **a, t_stack **b)
 {
-	t_stack *cheapest_node;
+	t_stack	*cheapest_node;
 
 	cheapest_node = find_cheapest(*a);
 	if (cheapest_node->above_median

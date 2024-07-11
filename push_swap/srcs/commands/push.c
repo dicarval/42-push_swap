@@ -6,15 +6,15 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:13:57 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/10 17:15:16 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:17 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 static void	push(t_stack **receiver, t_stack **sender)
 {
-	t_stack *push_node;
+	t_stack	*push_node;
 
 	if (!*sender)
 		return ;
@@ -34,6 +34,7 @@ static void	push(t_stack **receiver, t_stack **sender)
 		*receiver = push_node;
 	}
 }
+
 void	pa(t_stack **a, t_stack **b, bool print)
 {
 	push(a, b);

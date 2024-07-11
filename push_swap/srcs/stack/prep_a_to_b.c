@@ -6,20 +6,19 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:19:55 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/03 16:42:56 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:04:53 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../header/push_swap.h"
 
 static void	define_push_cost(t_stack *stack)
 {
 	int	median;
 	int	len;
 
-	median = stack_len(stack)/2;
+	median = stack_len(stack) / 2;
 	len = stack_len(stack);
-
 	while (stack)
 	{
 		if (stack->above_median == true)
@@ -33,9 +32,10 @@ static void	define_push_cost(t_stack *stack)
 
 t_stack	*find_cheapest(t_stack *a)
 {
-	long	cheapest = LONG_MAX;
+	long	cheapest;
 	t_stack	*cheapest_node;
 
+	cheapest = LONG_MAX;
 	while (a)
 	{
 		if (a->push_cost < cheapest)

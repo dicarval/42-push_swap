@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 13:33:54 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/03 16:42:56 by dicarval         ###   ########.fr       */
+/*   Created: 2024/06/19 10:52:19 by dicarval          #+#    #+#             */
+/*   Updated: 2024/07/11 16:04:52 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../header/push_swap.h"
 
-# include <limits.h>
-# include <stdbool.h>
-//# include "../extras/libft/libft.h"
-# include "../extras/ft_printf/ft_printf.h"
-
-
-typedef struct s_stack
+int	main(int argc, char **argv)
 {
-	long			nbr;
-	long			index;
-	long			push_cost;
-	bool			above_median;
-	bool			cheapest;
-	struct s_stack	*target_node;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-}	t_stack;
+	t_stack	*a;
+	t_stack	*b;
 
-t_stack	*find_min(t_stack *a);
-
-#endif
+	a = NULL;
+	b = NULL;
+	if (argc <= 2)
+		return (0);
+	stack_creation(&a, argv);
+	if (!stack_sorted(a))
+	{
+		if (stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			sort_three(&a);
+		else
+			sort_stack(&a, &b);
+	}
+	free_stack(&a);
+	return (0);
+}
