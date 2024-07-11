@@ -6,7 +6,7 @@
 #    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 17:26:39 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/11 17:00:32 by dicarval         ###   ########.fr        #
+#    Updated: 2024/07/11 17:08:20 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CFLAGS			= -Wall -Werror -Wextra -I
 RM				= rm -f
 
 # Source Files
-COMMANDS_DIR	=	$(SRC_DIR)commands/commands_utils.c \
+COMMANDS_DIR	=	$(SRC_DIR)commands/command_utils.c \
 					$(SRC_DIR)commands/push.c \
 					$(SRC_DIR)commands/rev_rotate.c \
 					$(SRC_DIR)commands/rotate.c \
