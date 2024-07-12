@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:19:55 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 16:04:53 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:57:00 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 static void	define_push_cost(t_stack *stack)
 {
-	int	median;
 	int	len;
 
-	median = stack_len(stack) / 2;
 	len = stack_len(stack);
 	while (stack)
 	{

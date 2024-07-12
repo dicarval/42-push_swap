@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:41:12 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/12 13:26:32 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/12 17:12:39 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	free_stack(t_stack **a)
 void	error_protocol(t_stack **a)
 {
 	free_stack(a);
-	ft_printf("Error");
+	write (2, "Error", 5);
 	exit(1);
 }
 
@@ -53,14 +53,16 @@ int	error_duplicate(t_stack *a, int n)
 
 int	error_syntax(char *argv)
 {
-	int i;
+	int	i;
 
-	if (!(*argv == '+' || *argv == '-' || (*argv >= '0' && *argv <= '9')))
+	i = 0;
+	if (!(argv[i] == '+' || argv[i] == '-'
+			|| (argv[i] >= '0' && argv[i] <= '9')))
 		return (1);
 	if ((argv[0] == '+' || argv[0] == '-')
 		&& !(argv[1] >= '0' && argv[1] <= '9'))
 		return (1);
-	i = 0;
+	i++;
 	while (argv[i])
 	{
 		if (!(argv[i] >= '0' && argv[i] <= '9'))

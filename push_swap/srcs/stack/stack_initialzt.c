@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:08:56 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/12 13:17:03 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/12 16:34:05 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,25 @@ static void	append_node(t_stack **a, int n)
 static long	ft_atol(const char *argv)
 {
 	long	result;
-	int		sign;
+	long	sign;
+	int		i;
 
-	while (*argv == ' ' || *argv == '\t' || *argv == '\n'
-		|| *argv == '\r' || *argv == '\f' || *argv == '\v')
-		argv++;
+	i = 0;
+	while (argv[i] == ' ' || argv[i] == '\t' || argv[i] == '\n'
+		|| argv[i] == '\r' || argv[i] == '\f' || argv[i] == '\v')
+		i++;
 	sign = 1;
-	if (*argv == '-' || *argv == '+')
+	if (argv[i] == '-' || argv[i] == '+')
 	{
-		if (*argv == '-')
+		if (argv[i] == '-')
 			sign = -1;
-		argv++;
+		i++;
 	}
 	result = 0;
-	while (*argv != '\0')
+	while (argv[i] != '\0')
 	{
-		result = (result * 10) + (*argv - '0');
-		argv++;
+		result = (result * 10) + (argv[i] - '0');
+		i++;
 	}
 	return (result * sign);
 }
