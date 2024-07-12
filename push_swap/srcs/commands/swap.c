@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 16:19:28 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 16:04:20 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:23:37 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,55 @@ static void	swap(t_stack **stack)
 
 void	sa(t_stack **a, bool print)
 {
+	t_stack	*temp;
+
 	swap(a);
 	if (!print)
-		printf("sa\n");
+		ft_printf("sa\n");
+	temp = *a;
+	while(temp)
+	{
+		ft_printf("%i\n", temp->nbr);
+		temp = temp->next;
+	}
+	ft_printf("\n");
 }
 
 void	sb(t_stack **b, bool print)
 {
+	t_stack	*temp;
+
 	swap(b);
 	if (!print)
-		printf("sb\n");
+		ft_printf("sb\n");
+	temp = *b;
+	while(temp)
+	{
+		ft_printf("%i\n", temp->nbr);
+		temp = temp->next;
+	}
+	ft_printf("\n");
 }
 
 void	ss(t_stack **a, t_stack **b, bool print)
 {
+	t_stack	*temp;
+
 	swap(a);
 	swap(b);
 	if (!print)
-		printf("ss\n");
+		ft_printf("ss\n");
+	temp = *a;
+	while(temp)
+	{
+		ft_printf("%i\n", temp->nbr);
+		temp = temp->next;
+	}
+	temp = *b;
+	while(temp)
+	{
+		ft_printf("%i\n", temp->nbr);
+		temp = (temp)->next;
+	}
+	ft_printf("\n");
 }

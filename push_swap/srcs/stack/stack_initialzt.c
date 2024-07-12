@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:08:56 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 17:35:33 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:17:03 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	stack_creation(t_stack **a, char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (error_syntax(argv[i]))
+		if (error_syntax(argv[i]) == 1)
 			error_protocol(a);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)

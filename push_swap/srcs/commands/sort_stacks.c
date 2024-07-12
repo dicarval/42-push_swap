@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:43:23 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 17:30:42 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:51:16 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ void	sort_stacks(t_stack **a, t_stack **b)
 
 	len_a = stack_len(*a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
+	{
+		pb(a, b, false);
+	}
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
+		pb(a, b, false);
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
 		prep_nodes_a_to_b(a, b);

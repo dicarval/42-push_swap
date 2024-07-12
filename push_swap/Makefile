@@ -6,7 +6,7 @@
 #    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 17:26:39 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/11 17:22:03 by dicarval         ###   ########.fr        #
+#    Updated: 2024/07/12 13:10:53 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ SRC_DIR			= srcs/
 OBJ_DIR			= obj/
 
 # Compiler and CFlags
-CC				= cc
+CC				= @cc
 CFLAGS			= -Wall -Werror -Wextra -I
-RM				= rm -f
+RM				= @rm -f
 
 # Source Files
 COMMANDS_DIR	=	$(SRC_DIR)commands/command_utils.c \
@@ -48,9 +48,10 @@ OBJ 			= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 # Build
 
 all: 			$(NAME)
+				@echo "All ready"
 
 $(PRINTF):
-				@make -C ./ft_printf
+				@make -s -C ./ft_printf
 
 $(NAME): 		$(OBJ) $(PRINTF)
 				@$(CC) $(CFLAGS) $(HEADER) $(OBJ) $(PRINTF) -o $(NAME)
@@ -61,12 +62,14 @@ $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 clean:
-				@$(RM) -r $(OBJ_DIR)
-				@make clean -C ./ft_printf
+				$(RM) -r $(OBJ_DIR)
+				@make clean -s -C ./ft_printf
+				@echo "Object files cleaned"
 
 fclean: 		clean
-				@$(RM) $(NAME)
-				@$(RM) $(PRINTF)
+				$(RM) $(NAME)
+				$(RM) $(PRINTF)
+				@echo "Executables cleaned"
 
 re: 			fclean all
 

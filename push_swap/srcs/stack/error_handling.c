@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:41:12 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 16:04:51 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:26:32 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,19 @@ int	error_duplicate(t_stack *a, int n)
 
 int	error_syntax(char *argv)
 {
+	int i;
+
 	if (!(*argv == '+' || *argv == '-' || (*argv >= '0' && *argv <= '9')))
 		return (1);
 	if ((argv[0] == '+' || argv[0] == '-')
 		&& !(argv[1] >= '0' && argv[1] <= '9'))
 		return (1);
-	while (++*argv)
+	i = 0;
+	while (argv[i])
 	{
-		if (!(*argv >= '0' && *argv <= '9'))
+		if (!(argv[i] >= '0' && argv[i] <= '9'))
 			return (1);
+		i++;
 	}
 	return (0);
 }
