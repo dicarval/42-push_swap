@@ -6,26 +6,26 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:29:26 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 16:04:17 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:25:46 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-void	prep_for_push(t_stack **stack, t_stack *move_to_top, char stack_name)
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 {
-	while (*stack != move_to_top)
+	while (*stack != top_node)
 	{
 		if (stack_name == 'a')
 		{
-			if (move_to_top->above_median)
+			if (top_node->above_median)
 				rra(stack, false);
 			else
 				ra(stack, false);
 		}
 		if (stack_name == 'b')
 		{
-			if (move_to_top->above_median)
+			if (top_node->above_median)
 				rrb(stack, false);
 			else
 				rb(stack, false);

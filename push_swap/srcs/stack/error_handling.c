@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:41:12 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/12 17:12:39 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:54:24 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	free_stack(t_stack **a)
 void	error_protocol(t_stack **a)
 {
 	free_stack(a);
-	write (2, "Error", 5);
+	write (2, "Error\n", 6);
 	exit(1);
 }
 

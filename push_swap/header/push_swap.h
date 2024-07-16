@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:33:54 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 17:35:46 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:44:43 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <limits.h>
 # include <stdbool.h>
+# include <unistd.h>
 # include "../ft_printf/ft_printf.h"
 
 typedef struct s_stack
@@ -41,7 +42,7 @@ void	stack_creation(t_stack **a, char **argv);
 //***Stack utils
 t_stack	*find_last(t_stack *a);
 bool	stack_sorted(t_stack *stack);
-int		stack_len(t_stack *stack);
+long	stack_len(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
 t_stack	*find_max(t_stack *stack);
 
@@ -68,7 +69,7 @@ void	rrb(t_stack **b, bool print);
 void	rrr(t_stack **a, t_stack **b, bool print);
 
 //***Commands utils
-void	prep_for_push(t_stack **stack, t_stack *move_to_top, char stack_name);
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
 void	updt_index(t_stack *stack);
 void	min_on_top(t_stack **a);
 

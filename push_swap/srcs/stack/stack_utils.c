@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:27:47 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 17:48:38 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:53:08 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ t_stack	*find_min(t_stack *stack)
 	return (temp);
 }
 
-int	stack_len(t_stack *stack)
+long	stack_len(t_stack *stack)
 {
-	int	len;
+	long	len;
 
 	len = 0;
+	while (stack->prev != NULL)
+		stack = stack->prev;
 	while (stack != NULL)
 	{
 		len++;

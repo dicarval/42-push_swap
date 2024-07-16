@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:43:23 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/12 13:51:16 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:13:13 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (!(*a == cheapest_node) && !(*b == cheapest_node->target_node))
+	while (*a != cheapest_node && *b != cheapest_node->target_node)
 		rr(a, b, false);
 	updt_index(*a);
 	updt_index(*b);
@@ -22,7 +22,7 @@ static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 
 static void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (!(*a == cheapest_node) && !(*b == cheapest_node->target_node))
+	while (*a != cheapest_node && *b != cheapest_node->target_node)
 		rrr(a, b, false);
 	updt_index(*a);
 	updt_index(*b);
@@ -56,9 +56,7 @@ void	sort_stacks(t_stack **a, t_stack **b)
 
 	len_a = stack_len(*a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-	{
 		pb(a, b, false);
-	}
 	if (len_a-- > 3 && !stack_sorted(*a))
 		pb(a, b, false);
 	while (len_a-- > 3 && !stack_sorted(*a))

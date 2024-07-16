@@ -6,25 +6,18 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:19:55 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/12 15:57:00 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:46:30 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-static void	define_push_cost(t_stack *stack)
+static void	define_push_cost(t_stack *stack, long len)
 {
-	int	len;
-
-	len = stack_len(stack);
-	while (stack)
-	{
-		if (stack->above_median == true)
-			stack->push_cost = len - stack->index;
-		if (stack->above_median == false)
-			stack->push_cost = stack->index;
-		stack = stack->next;
-	}
+	if (stack->above_median == true)
+		stack->push_cost = len - stack->index;
+	if (stack->above_median == false)
+		stack->push_cost = stack->index;
 	return ;
 }
 
@@ -46,24 +39,23 @@ t_stack	*find_cheapest(t_stack *a)
 	return (cheapest_node);
 }
 
-static void	set_cheapest(t_stack *a)
+static void	set_cheapest(t_stack *stack)
 {
 	t_stack	*temp;
+	long len_stk;
+	long len_stk_tn;
 
-	temp = a;
+	len_stk = stack_len(stack);
+	len_stk_tn = stack_len(stack->target_node);
+	temp = stack;
 	while (temp)
 	{
-		define_push_cost(temp);
-		define_push_cost(temp->target_node);
-		temp = temp->next;
-	}
-	temp = a;
-	while (temp)
-	{
+		define_push_cost(temp, len_stk);
+		define_push_cost(temp->target_node, len_stk_tn);
 		temp->push_cost += temp->target_node->push_cost;
 		temp = temp->next;
 	}
-	temp = find_cheapest(a);
+	temp = find_cheapest(stack);
 	temp->cheapest = true;
 	return ;
 }
