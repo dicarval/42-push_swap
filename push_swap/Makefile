@@ -6,38 +6,26 @@
 #    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 17:26:39 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/16 10:29:37 by dicarval         ###   ########.fr        #
+#    Updated: 2024/07/18 18:31:28 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 
-#Directories
+# Directories
 PRINTF			= ./ft_printf/libftprintf.a
 HEADER			= header/
 SRC_DIR			= srcs/
 OBJ_DIR			= obj/
 
 # Compiler and CFlags
-CC				= @cc
+CC				= cc
 CFLAGS			= -Wall -Werror -Wextra -I
-RM				= @rm -f
+RM				= rm -f
 
 # Source Files
-COMMANDS_DIR	=	$(SRC_DIR)commands/command_utils.c \
-					$(SRC_DIR)commands/push.c \
-					$(SRC_DIR)commands/rev_rotate.c \
-					$(SRC_DIR)commands/rotate.c \
-					$(SRC_DIR)commands/sort_stacks.c \
-					$(SRC_DIR)commands/sort_three.c \
-					$(SRC_DIR)commands/swap.c
-
-STACK_DIR		=	$(SRC_DIR)stack/error_handling.c \
-					$(SRC_DIR)stack/prep_a_to_b.c \
-					$(SRC_DIR)stack/prep_b_to_a.c \
-					$(SRC_DIR)stack/main.c \
-					$(SRC_DIR)stack/stack_initialzt.c \
-					$(SRC_DIR)stack/stack_utils.c
+COMMANDS_DIR	=	$(wildcard srcs/commands/*.c)
+STACK_DIR		=	$(wildcard srcs/stack/*.c)
 
 # Concatenate all source files
 SRCS 			= $(COMMANDS_DIR) $(STACK_DIR)
@@ -46,7 +34,6 @@ SRCS 			= $(COMMANDS_DIR) $(STACK_DIR)
 OBJ 			= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # Build
-
 all: 			$(NAME)
 				@echo "All ready"
 
@@ -62,13 +49,13 @@ $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 clean:
-				$(RM) -r $(OBJ_DIR)
+				@$(RM) -r $(OBJ_DIR)
 				@make clean -s -C ./ft_printf
 				@echo "Object files cleaned"
 
 fclean: 		clean
-				$(RM) $(NAME)
-				$(RM) $(PRINTF)
+				@$(RM) $(NAME)
+				@$(RM) $(PRINTF)
 				@echo "Executables cleaned"
 
 re: 			fclean all
