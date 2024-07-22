@@ -6,7 +6,7 @@
 #    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 17:26:39 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/18 18:31:28 by dicarval         ###   ########.fr        #
+#    Updated: 2024/07/22 15:00:48 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ OBJ 			= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # Build
 all: 			$(NAME)
-				@echo "All ready"
 
 $(PRINTF):
 				@make -s -C ./ft_printf

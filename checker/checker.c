@@ -6,13 +6,13 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 10:36:40 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/18 18:47:05 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/22 17:27:00 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	ft_strcmp(char* instr, char * comparing)
+int	ft_strcmp(char* instr, char *comparing)
 {
 	int i;
 
@@ -86,22 +86,19 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	char	*read_instr;
-	int		fd;
 
+	a = NULL;
+	b = NULL;
 	if (argc <= 2)
 		return (0);
 	stack_creation(&a, argv);
-	fd = 0;
-	read_instr = get_next_line(fd);
-	while (read_instr)
-	{
+	while ((read_instr = get_next_line(STDIN_FILENO)))
 		sort_instr(read_instr, &a, &b);
-		read_instr = get_next_line(fd);
-	}
 	if (sort_check(&a, &b))
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
+	free(a);
 	return (0);
 }
 

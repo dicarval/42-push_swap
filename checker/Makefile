@@ -6,67 +6,68 @@
 #    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/18 10:55:34 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/18 18:31:53 by dicarval         ###   ########.fr        #
+#    Updated: 2024/07/22 16:47:08 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			= checker
-ARCHIVE			= libchecker.a
-PUSH_SWAP_EXEC	= ../push_swap/push_swap
-ARC_PRINTF		= ../push_swap/ft_printf/libftprintf.a
+NAME 				= checker
+ARCHIVE				= libchecker.a
+ARC_PRINTF			= ../push_swap/ft_printf/libftprintf.a
+SRCS_PS_DIR			= ../push_swap/srcs/
+OBJS_PS_DIR			= ./push_swap_o/
 
 # Compiler and CFlags
-CC 				= @cc
-CFLAGS 			= -Wall -Wextra -Werror -g
-MAKE_LIB 		= ar -rcs
-RM				= rm -f
-RM_EXTERNAL		= rm -f $(OBJS_PS) $(OBJS_FTPF) $(PUSH_SWAP_EXEC) \
-						 $(ARC_PRINTF)
+CC 					= @cc
+CFLAGS 				= -Wall -Wextra -Werror
+MAKE_LIB 			= ar -rcs
+RM					= rm -f
+RM_EXTERNAL			= rm -f $(wildcard ../push_swap/ft_printf/*.o)
 
 # Source Files
-SRCS_CHECKER	= $(wildcard *.c)
-SRCS_GNL		= $(wildcard gnl/*.c)
-SRCS_STACK		= $(wildcard ../push_swap/srcs/stack/*.c)
-SRCS_CMD		= $(wildcard ../push_swap/srcs/commands/*.c)
-SRCS_FTPF		= $(wildcard ../push_swap/ft_printf/*.c)
+SRCS_STACK			= $(wildcard ../push_swap/srcs/stack/*.c)
+SRCS_CMD			= $(wildcard ../push_swap/srcs/commands/*.c)
 
 # Concatenate all source files
-SRCS			= $(SRCS_CHECKER) $(SRCS_GNL)
-SRCS_PS			= $(SRCS_STACK) $(SRCS_CMD)
+SRCS				= checker.c $(wildcard ./gnl/*.c)
+SRCS_PS				= $(SRCS_STACK) $(SRCS_CMD)
 
 # Object Files
-OBJS			= $(SRCS:.c=.o)
-OBJS_PS			= $(SRCS_PS:.c=.o)
-OBJS_FTPF		= $(SRCS_FTPF:.c=.o)
+OBJS				= $(SRCS:.c=.o)
+OBJS_PS				= $(patsubst $(SRCS_PS_DIR)%.c, $(OBJS_PS_DIR)%.o, $(SRCS_PS))
 
 # Build
-all:			$(NAME)
+all:				$(NAME)
 
-$(ARCHIVE):		$(OBJS_PS) $(OBJS_FTPF) $(OBJS)
-				@make -s -C ../push_swap
-				@$(MAKE_LIB) $(ARCHIVE) $^
-				@$(RM_EXTERNAL)
-				@$(RM) -r ../push_swap/obj
+$(ARC_PRINTF):
+					@make -s -C ../push_swap/ft_printf
 
-$(NAME):		$(ARCHIVE)
-				@$(CC) $(CFLAGS) $< -o $@
+$(ARCHIVE):			$(OBJS) $(OBJS_PS)
+					@$(MAKE_LIB) $(ARCHIVE) $^
+
+$(NAME):			$(ARCHIVE) $(ARC_PRINTF)
+					@$(CC) $(CFLAGS) $^ -o $@
 
 # Compile object files from source files
-$(OBJS):		$(SRCS)
-				@$(CC) $(CFLAGS) -c $< -o $@
+%.o:				%.c
+					@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJS_PS_DIR)%.o:	$(SRCS_PS_DIR)%.c
+					@mkdir -p $(@D)
+					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				@$(RM) $(OBJS)
-				@echo "Object files cleaned"
+					@$(RM) $(OBJS) -r $(OBJS_PS_DIR)
+					@$(RM_EXTERNAL)
+					@echo "Object files cleaned"
 
-fclean: 		clean
-				@$(RM) $(NAME)
-				@$(RM) $(ARCHIVE)
-				@echo "Executables and archives cleaned"
+fclean: 			clean
+					@$(RM) $(NAME)
+					@$(RM) $(ARCHIVE) $(ARC_PRINTF)
+					@echo "Executables and archives cleaned"
 
-re: 			fclean all
+re: 				fclean all
 
 # Phony targets represent actions not files
-.PHONY: 		all clean fclean re
+.PHONY: 			all clean fclean re
 
 

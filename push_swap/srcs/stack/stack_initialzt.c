@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 13:08:56 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/12 16:34:05 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/22 17:23:43 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	stack_creation(t_stack **a, char **argv)
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			error_protocol(a);
-		if (error_duplicate(*a, (int)n))
+		if (error_duplicate(*a, (int)n) == 1)
 			error_protocol(a);
 		append_node(a, (int)n);
 		i++;
