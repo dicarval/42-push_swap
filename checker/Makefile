@@ -6,7 +6,7 @@
 #    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/18 10:55:34 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/22 16:47:08 by dicarval         ###   ########.fr        #
+#    Updated: 2024/07/23 15:53:56 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,12 +58,10 @@ $(OBJS_PS_DIR)%.o:	$(SRCS_PS_DIR)%.c
 clean:
 					@$(RM) $(OBJS) -r $(OBJS_PS_DIR)
 					@$(RM_EXTERNAL)
-					@echo "Object files cleaned"
 
 fclean: 			clean
 					@$(RM) $(NAME)
 					@$(RM) $(ARCHIVE) $(ARC_PRINTF)
-					@echo "Executables and archives cleaned"
 
 re: 				fclean all
 

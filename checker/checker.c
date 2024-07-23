@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 10:36:40 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/22 17:27:00 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:12:19 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@ int	ft_strcmp(char* instr, char *comparing)
 	int i;
 
 	i = 0;
-	while (instr && comparing)
-	{
-		if (instr[i] != comparing[i])
-			return (0);
+	while (instr[i] == comparing[i] && instr[i])
 		i++;
-	}
-	return (1);
+	return (instr[i] - comparing[i]);
 }
 void	error_instr(t_stack **a, t_stack **b)
 {
@@ -37,17 +33,20 @@ void	error_instr(t_stack **a, t_stack **b)
 
 int	sort_check(t_stack **a, t_stack **b)
 {
+	t_stack *temp;
+
+	temp = *a;
 	if (*a == NULL || (*a)->next == NULL)
 		error_instr(a, b);
 	if (*b != NULL)
 		return (1);
-	while (*a)
+	while (temp)
 	{
-		if ((*a)->next == NULL)
+		if ((temp)->next == NULL)
 			return (0);
-		if (*a > (*a)->next)
+		if ((temp)->nbr > (temp)->next->nbr)
 			return (1);
-		*a = (*a)->next;
+		temp = (temp)->next;
 	}
 	return (0);
 }
@@ -55,28 +54,28 @@ int	sort_check(t_stack **a, t_stack **b)
 
 void	sort_instr(char *read_instr, t_stack **a, t_stack **b)
 {
-	if (ft_strcmp(read_instr, "pa\n"))
-		pa(a, b, false);
-	else if (ft_strcmp(read_instr, "pb\n"))
-		pb(a, b, false);
-	else if (ft_strcmp(read_instr, "sa\n"))
-		sa(a, false);
-	else if (ft_strcmp(read_instr, "sb\n"))
-		sb(a, false);
-	else if (ft_strcmp(read_instr, "ss\n"))
-		ss(a, b, false);
-	else if (ft_strcmp(read_instr, "ra\n"))
-		ra(a, false);
-	else if (ft_strcmp(read_instr, "rb\n"))
-		rb(b, false);
-	else if (ft_strcmp(read_instr, "rr\n"))
-		rr(a, b, false);
-	else if (ft_strcmp(read_instr, "rra\n"))
-		rra(a, false);
-	else if (ft_strcmp(read_instr, "rrb\n"))
-		rrb(b, false);
-	else if (ft_strcmp(read_instr, "rrr\n"))
-		rrr(a, b, false);
+	if (ft_strcmp(read_instr, "pa\n") == 0)
+		pa(a, b, true);
+	else if (ft_strcmp(read_instr, "pb\n") == 0)
+		pb(a, b, true);
+	else if (ft_strcmp(read_instr, "sa\n") == 0)
+		sa(a, true);
+	else if (ft_strcmp(read_instr, "sb\n") == 0)
+		sb(a, true);
+	else if (ft_strcmp(read_instr, "ss\n") == 0)
+		ss(a, b, true);
+	else if (ft_strcmp(read_instr, "ra\n") == 0)
+		ra(a, true);
+	else if (ft_strcmp(read_instr, "rb\n") == 0)
+		rb(b, true);
+	else if (ft_strcmp(read_instr, "rr\n") == 0)
+		rr(a, b, true);
+	else if (ft_strcmp(read_instr, "rra\n") == 0)
+		rra(a, true);
+	else if (ft_strcmp(read_instr, "rrb\n") == 0)
+		rrb(b, true);
+	else if (ft_strcmp(read_instr, "rrr\n") == 0)
+		rrr(a, b, true);
 	else
 		error_instr(a, b);
 }
@@ -89,16 +88,24 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc <= 2)
+	if (argc < 2)
 		return (0);
 	stack_creation(&a, argv);
-	while ((read_instr = get_next_line(STDIN_FILENO)))
+	while ((read_instr = get_next_line(0)))
+	{
+		if (ft_strcmp(read_instr, "\n") == 0)
+		{
+			free(read_instr);
+			break;
+		}
 		sort_instr(read_instr, &a, &b);
-	if (sort_check(&a, &b))
-		write(1, "KO\n", 3);
-	else
+		free(read_instr);
+	}
+	if (sort_check(&a, &b) == 0)
 		write(1, "OK\n", 3);
-	free(a);
+	else
+		write(1, "KO\n", 3);
+	free_stack(&a);
 	return (0);
 }
 

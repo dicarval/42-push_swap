@@ -6,7 +6,7 @@
 #    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 17:26:39 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/22 15:00:48 by dicarval         ###   ########.fr        #
+#    Updated: 2024/07/23 16:08:08 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ all: 			$(NAME)
 
 $(PRINTF):
 				@make -s -C ./ft_printf
+				@echo "Push_swap created"
 
 $(NAME): 		$(OBJ) $(PRINTF)
 				@$(CC) $(CFLAGS) $(HEADER) $(OBJ) $(PRINTF) -o $(NAME)
@@ -47,15 +48,26 @@ $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 				@mkdir -p $(@D)
 				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
+# Bonus
+BNAME			= ../checker/checker
+
+bonus:			$(BNAME)
+
+$(BNAME):
+				@make -s -C ../checker
+				@echo "Checker created"
+
+# Clean
 clean:
 				@$(RM) -r $(OBJ_DIR)
 				@make clean -s -C ./ft_printf
-				@echo "Object files cleaned"
+				@echo "Object files deleted"
 
 fclean: 		clean
 				@$(RM) $(NAME)
 				@$(RM) $(PRINTF)
-				@echo "Executables cleaned"
+				@cd ../checker && make fclean -s
+				@echo "Executables deleted"
 
 re: 			fclean all
 
