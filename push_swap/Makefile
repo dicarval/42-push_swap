@@ -38,10 +38,11 @@ all: 			$(NAME)
 
 $(PRINTF):
 				@make -s -C ./ft_printf
-				@echo "Push_swap created"
 
 $(NAME): 		$(OBJ) $(PRINTF)
 				@$(CC) $(CFLAGS) $(HEADER) $(OBJ) $(PRINTF) -o $(NAME)
+				@echo "Push Swap - Object files created"
+				@echo "Push Swap - Executable created"
 
 # Compile object files from source files
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
@@ -55,19 +56,18 @@ bonus:			$(BNAME)
 
 $(BNAME):
 				@make -s -C ../checker
-				@echo "Checker created"
 
 # Clean
 clean:
 				@$(RM) -r $(OBJ_DIR)
 				@make clean -s -C ./ft_printf
-				@echo "Object files deleted"
+				@echo "Push Swap - Object files deleted"
 
 fclean: 		clean
 				@$(RM) $(NAME)
 				@$(RM) $(PRINTF)
+				@echo "Push Swap - Executable deleted"
 				@cd ../checker && make fclean -s
-				@echo "Executables deleted"
 
 re: 			fclean all
 

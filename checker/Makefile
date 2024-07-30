@@ -46,6 +46,8 @@ $(ARCHIVE):			$(OBJS) $(OBJS_PS)
 
 $(NAME):			$(ARCHIVE) $(ARC_PRINTF)
 					@$(CC) $(CFLAGS) $^ -o $@
+					@echo "Checker - Object files created"
+					@echo "Checker - Executable created"
 
 # Compile object files from source files
 %.o:				%.c
@@ -58,11 +60,13 @@ $(OBJS_PS_DIR)%.o:	$(SRCS_PS_DIR)%.c
 clean:
 					@$(RM) $(OBJS) -r $(OBJS_PS_DIR)
 					@$(RM_EXTERNAL)
+					@echo "Checker - Object files deleted"
 
 fclean: 			clean
 					@$(RM) $(NAME)
 					@$(RM) $(ARCHIVE) $(ARC_PRINTF)
-
+					@echo "Checker - Executable file deleted"
+					@echo "Checker - Archives files deleted"
 re: 				fclean all
 
 # Phony targets represent actions not files
