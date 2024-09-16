@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/29 17:05:29 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/18 18:12:12 by dicarval         ###   ########.fr        #
+#    Updated: 2024/09/16 15:01:03 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ ${NAME}: ${OBJS_PF}
 	@${LIBC} ${NAME} ${OBJS_PF}
 
 fclean: clean
-	@${RM} ${NAME} $(libft)
+	@${RM} ${NAME}
 
 clean:
 	@${RM} ${OBJS_PF} ${OBJS_LB}

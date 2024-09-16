@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/18 10:55:34 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/23 15:53:56 by dicarval         ###   ########.fr        #
+#    Updated: 2024/09/16 16:13:01 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,25 @@ ARCHIVE				= libchecker.a
 ARC_PRINTF			= ../push_swap/ft_printf/libftprintf.a
 SRCS_PS_DIR			= ../push_swap/srcs/
 OBJS_PS_DIR			= ./push_swap_o/
+GNL_DIR				= ./gnl/
 
 # Compiler and CFlags
-CC 					= @cc
+CC 					= cc
 CFLAGS 				= -Wall -Wextra -Werror
 MAKE_LIB 			= ar -rcs
 RM					= rm -f
-RM_EXTERNAL			= rm -f $(wildcard ../push_swap/ft_printf/*.o)
 
 # Source Files
-SRCS_STACK			= $(wildcard ../push_swap/srcs/stack/*.c)
-SRCS_CMD			= $(wildcard ../push_swap/srcs/commands/*.c)
+
+SRCS_CMD	= $(SRCS_PS_DIR)commands/command_utils.c $(SRCS_PS_DIR)commands/push.c $(SRCS_PS_DIR)commands/rev_rotate.c \
+				$(SRCS_PS_DIR)commands/rotate.c $(SRCS_PS_DIR)commands/sort_stacks.c $(SRCS_PS_DIR)commands/sort_three.c \
+				$(SRCS_PS_DIR)commands/swap.c
+
+SRCS_STACK		= $(SRCS_PS_DIR)stack/error_handling.c $(SRCS_PS_DIR)stack/prep_a_to_b.c $(SRCS_PS_DIR)stack/prep_b_to_a.c \
+				$(SRCS_PS_DIR)stack/push_swap.c $(SRCS_PS_DIR)stack/stack_initialzt.c $(SRCS_PS_DIR)stack/stack_utils.c
 
 # Concatenate all source files
-SRCS				= checker.c $(wildcard ./gnl/*.c)
+SRCS				= checker.c $(GNL_DIR)get_next_line_utils.c $(GNL_DIR)get_next_line.c
 SRCS_PS				= $(SRCS_STACK) $(SRCS_CMD)
 
 # Object Files
@@ -59,7 +64,7 @@ $(OBJS_PS_DIR)%.o:	$(SRCS_PS_DIR)%.c
 
 clean:
 					@$(RM) $(OBJS) -r $(OBJS_PS_DIR)
-					@$(RM_EXTERNAL)
+					@$(RM) ../push_swap/ft_printf/*.o
 					@echo "Checker - Object files deleted"
 
 fclean: 			clean

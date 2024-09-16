@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 17:26:39 by dicarval          #+#    #+#              #
-#    Updated: 2024/07/23 16:08:08 by dicarval         ###   ########.fr        #
+#    Updated: 2024/09/16 15:44:57 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME			= push_swap
 
 # Directories
 PRINTF			= ./ft_printf/libftprintf.a
-HEADER			= header/
-SRC_DIR			= srcs/
-OBJ_DIR			= obj/
+HEADER			= ./header/
+SRC_DIR			= ./srcs/
+OBJ_DIR			= ./obj/
 
 # Compiler and CFlags
 CC				= cc
@@ -24,8 +24,12 @@ CFLAGS			= -Wall -Werror -Wextra -I
 RM				= rm -f
 
 # Source Files
-COMMANDS_DIR	=	$(wildcard srcs/commands/*.c)
-STACK_DIR		=	$(wildcard srcs/stack/*.c)
+COMMANDS_DIR	= $(SRC_DIR)commands/command_utils.c $(SRC_DIR)commands/push.c $(SRC_DIR)commands/rev_rotate.c \
+				$(SRC_DIR)commands/rotate.c $(SRC_DIR)commands/sort_stacks.c $(SRC_DIR)commands/sort_three.c \
+				$(SRC_DIR)commands/swap.c
+
+STACK_DIR		= $(SRC_DIR)stack/error_handling.c $(SRC_DIR)stack/prep_a_to_b.c $(SRC_DIR)stack/prep_b_to_a.c \
+				$(SRC_DIR)stack/push_swap.c $(SRC_DIR)stack/stack_initialzt.c $(SRC_DIR)stack/stack_utils.c
 
 # Concatenate all source files
 SRCS 			= $(COMMANDS_DIR) $(STACK_DIR)
