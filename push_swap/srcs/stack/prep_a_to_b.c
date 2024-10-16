@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prep_a_to_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:19:55 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/16 15:46:30 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:03:01 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ t_stack	*find_cheapest(t_stack *a)
 static void	set_cheapest(t_stack *stack)
 {
 	t_stack	*temp;
-	long len_stk;
-	long len_stk_tn;
+	long	len_stk;
+	long	len_stk_tn;
 
 	len_stk = stack_len(stack);
 	len_stk_tn = stack_len(stack->target_node);
@@ -55,8 +55,6 @@ static void	set_cheapest(t_stack *stack)
 		temp->push_cost += temp->target_node->push_cost;
 		temp = temp->next;
 	}
-	temp = find_cheapest(stack);
-	temp->cheapest = true;
 	return ;
 }
 

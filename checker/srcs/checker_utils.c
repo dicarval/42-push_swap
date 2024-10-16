@@ -1,58 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 10:36:40 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/23 14:12:19 by dicarval         ###   ########.fr       */
+/*   Created: 2024/10/15 15:09:56 by dicarval          #+#    #+#             */
+/*   Updated: 2024/10/15 17:35:16 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../header/checker.h"
 
-int	ft_strcmp(char* instr, char *comparing)
+int	ft_strcmp(char *instr, char *comparing)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (instr[i] == comparing[i] && instr[i])
 		i++;
 	return (instr[i] - comparing[i]);
 }
-void	error_instr(t_stack **a, t_stack **b)
-{
-	if (b)
-		free_stack(b);
-	if (a)
-		free_stack(a);
-	write (2, "Error\n", 6);
-	exit(1);
-}
 
-int	sort_check(t_stack **a, t_stack **b)
-{
-	t_stack *temp;
-
-	temp = *a;
-	if (*a == NULL || (*a)->next == NULL)
-		error_instr(a, b);
-	if (*b != NULL)
-		return (1);
-	while (temp)
-	{
-		if ((temp)->next == NULL)
-			return (0);
-		if ((temp)->nbr > (temp)->next->nbr)
-			return (1);
-		temp = (temp)->next;
-	}
-	return (0);
-}
-
-
-void	sort_instr(char *read_instr, t_stack **a, t_stack **b)
+int	sort_instr(char *read_instr, t_stack **a, t_stack **b)
 {
 	if (ft_strcmp(read_instr, "pa\n") == 0)
 		pa(a, b, true);
@@ -77,35 +47,6 @@ void	sort_instr(char *read_instr, t_stack **a, t_stack **b)
 	else if (ft_strcmp(read_instr, "rrr\n") == 0)
 		rrr(a, b, true);
 	else
-		error_instr(a, b);
-}
-
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
-	char	*read_instr;
-
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	stack_creation(&a, argv);
-	while ((read_instr = get_next_line(0)))
-	{
-		if (ft_strcmp(read_instr, "\n") == 0)
-		{
-			free(read_instr);
-			break;
-		}
-		sort_instr(read_instr, &a, &b);
-		free(read_instr);
-	}
-	if (sort_check(&a, &b) == 0)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
-	free_stack(&a);
+		return (1);
 	return (0);
 }
-

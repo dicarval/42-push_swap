@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   command_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:29:26 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/16 15:25:46 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/10/16 16:44:04 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
+void	prep_for_push(t_stack **stack, t_stack *node, char stack_name)
 {
-	while (*stack != top_node)
+	while (*stack != node)
 	{
 		if (stack_name == 'a')
 		{
-			if (top_node->above_median)
+			if (node->above_median)
 				rra(stack, false);
 			else
 				ra(stack, false);
 		}
 		if (stack_name == 'b')
 		{
-			if (top_node->above_median)
+			 if (node->above_median)
 				rrb(stack, false);
 			else
 				rb(stack, false);
@@ -45,7 +45,7 @@ void	updt_index(t_stack *stack)
 	while (stack)
 	{
 		stack->index = i;
-		if (i > median)
+		if (i >= median)
 			stack->above_median = true;
 		else
 			stack->above_median = false;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:33:54 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/16 15:44:43 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:02:43 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_stack
 	long			index;
 	long			push_cost;
 	bool			above_median;
-	bool			cheapest;
 	struct s_stack	*target_node;
 	struct s_stack	*prev;
 	struct s_stack	*next;

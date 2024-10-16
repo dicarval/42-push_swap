@@ -6,7 +6,7 @@
 #    By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/10 17:26:39 by dicarval          #+#    #+#              #
-#    Updated: 2024/09/16 15:44:57 by dicarval         ###   ########.fr        #
+#    Updated: 2024/10/16 11:43:00 by dicarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME			= push_swap
 
 # Directories
 PRINTF			= ./ft_printf/libftprintf.a
-HEADER			= ./header/
+HEADER			= -Iheader
 SRC_DIR			= ./srcs/
 OBJ_DIR			= ./obj/
 
 # Compiler and CFlags
 CC				= cc
-CFLAGS			= -Wall -Werror -Wextra -I
+CFLAGS			= -Wall -Werror -Wextra
 RM				= rm -f
 
 # Source Files
@@ -39,14 +39,15 @@ OBJ 			= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # Build
 all: 			$(NAME)
+				@echo "Push Swap - All set"
 
 $(PRINTF):
 				@make -s -C ./ft_printf
 
 $(NAME): 		$(OBJ) $(PRINTF)
-				@$(CC) $(CFLAGS) $(HEADER) $(OBJ) $(PRINTF) -o $(NAME)
+				@$(CC) $(CFLAGS) $(OBJ) $(PRINTF) -o $(NAME)
 				@echo "Push Swap - Object files created"
-				@echo "Push Swap - Executable created"
+				@echo "Push Swap - Executable file created"
 
 # Compile object files from source files
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
@@ -70,7 +71,8 @@ clean:
 fclean: 		clean
 				@$(RM) $(NAME)
 				@$(RM) $(PRINTF)
-				@echo "Push Swap - Executable deleted"
+				@echo "Push Swap - Executable file deleted"
+				@echo "Push Swap - All clean"
 				@cd ../checker && make fclean -s
 
 re: 			fclean all
