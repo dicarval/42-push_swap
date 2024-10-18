@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:43:23 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/16 14:13:13 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/10/18 10:26:54 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	move_a_to_b(t_stack **a, t_stack **b)
 	if (cheapest_node->above_median
 		&& cheapest_node->target_node->above_median)
 		rev_rotate_both(a, b, cheapest_node);
-	if (!(cheapest_node->above_median)
+	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))
 		rotate_both(a, b, cheapest_node);
 	prep_for_push(a, cheapest_node, 'a');

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prep_b_to_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicarval <dicarval@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:19:02 by dicarval          #+#    #+#             */
-/*   Updated: 2024/07/11 16:04:54 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/10/18 10:15:20 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 static void	set_target_node_b(t_stack *b, t_stack *a)
 {
-	t_stack	*temp;
+	t_stack	*temp_a;
 	t_stack	*target;
 	long	closest_a;
 
 	while (b)
 	{
 		closest_a = LONG_MAX;
-		temp = a;
-		while (temp)
+		temp_a = a;
+		while (temp_a)
 		{
-			if (b->nbr < temp->nbr
-				&& temp->nbr < closest_a)
+			if (b->nbr < temp_a->nbr
+				&& temp_a->nbr < closest_a)
 			{
-				closest_a = temp->nbr;
-				target = temp;
+				closest_a = temp_a->nbr;
+				target = temp_a;
 			}
-			temp = temp->next;
+			temp_a = temp_a->next;
 		}
 		if (closest_a == LONG_MAX)
 			b->target_node = find_min(a);

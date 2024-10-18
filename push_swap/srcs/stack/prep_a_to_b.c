@@ -6,20 +6,11 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:19:55 by dicarval          #+#    #+#             */
-/*   Updated: 2024/10/16 15:03:01 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/10/18 10:28:05 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
-
-static void	define_push_cost(t_stack *stack, long len)
-{
-	if (stack->above_median == true)
-		stack->push_cost = len - stack->index;
-	if (stack->above_median == false)
-		stack->push_cost = stack->index;
-	return ;
-}
 
 t_stack	*find_cheapest(t_stack *a)
 {
@@ -37,6 +28,15 @@ t_stack	*find_cheapest(t_stack *a)
 		a = a->next;
 	}
 	return (cheapest_node);
+}
+
+static void	define_push_cost(t_stack *stack, long len)
+{
+	if (stack->above_median == true)
+		stack->push_cost = len - stack->index;
+	if (stack->above_median == false)
+		stack->push_cost = stack->index;
+	return ;
 }
 
 static void	set_cheapest(t_stack *stack)
@@ -60,23 +60,23 @@ static void	set_cheapest(t_stack *stack)
 
 static void	set_target_node_a(t_stack *a, t_stack *b)
 {
-	t_stack	*temp;
+	t_stack	*temp_b;
 	t_stack	*target;
 	long	closest_b;
 
 	while (a)
 	{
 		closest_b = LONG_MIN;
-		temp = b;
-		while (temp)
+		temp_b = b;
+		while (temp_b)
 		{
-			if (a->nbr > temp->nbr
-				&& temp->nbr > closest_b)
+			if (a->nbr > temp_b->nbr
+				&& temp_b->nbr > closest_b)
 			{
-				closest_b = temp->nbr;
-				target = temp;
+				closest_b = temp_b->nbr;
+				target = temp_b;
 			}
-			temp = temp->next;
+			temp_b = temp_b->next;
 		}
 		if (closest_b == LONG_MIN)
 			a->target_node = find_max(b);

@@ -6,7 +6,7 @@
 /*   By: dicarval <dicarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:29:26 by dicarval          #+#    #+#             */
-/*   Updated: 2024/10/16 16:44:04 by dicarval         ###   ########.fr       */
+/*   Updated: 2024/10/18 11:25:05 by dicarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	prep_for_push(t_stack **stack, t_stack *node, char stack_name)
 		}
 		if (stack_name == 'b')
 		{
-			 if (node->above_median)
+			if (node->above_median)
 				rrb(stack, false);
 			else
 				rb(stack, false);
@@ -56,9 +56,12 @@ void	updt_index(t_stack *stack)
 
 void	min_on_top(t_stack **a)
 {
-	while ((*a)->nbr != find_min(*a)->nbr)
+	t_stack	*min;
+
+	min = find_min(*a);
+	while ((*a)->nbr != min->nbr)
 	{
-		if (find_min(*a)->above_median)
+		if (min->above_median)
 			rra(a, false);
 		else
 			ra(a, false);
